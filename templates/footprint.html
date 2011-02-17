@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Political representatives for this location{% endblock %}
+
+{% block content %}
+<img src="{{ map_url|safe }}">
+<h2>Your representation</h2>
+<ul class="districts">
+{% for district in districts %}
+  <li class="district">
+    <b class="layer">{{ district.layer.name }}</b>—<span class="name">{{ district.pretty_name }}</span>
+    {% for rep in district.representatives.all %}
+      <div class="representative">
+        <a href="{{ rep.url }}">{{ rep.pretty_name }}</a>
+      </div>
+    {% endfor %}
+  </li>
+{% endfor %}
+</ul>
+{% endblock %}

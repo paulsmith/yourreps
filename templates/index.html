@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/search/" method="get">
+    <label>Address: <input name="q" id="q"></label> <input type="submit" value="Search for your footprint">
+</form>
+{% endblock %}

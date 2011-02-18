@@ -1,7 +1,44 @@
 {% extends "base.html" %}
 
+{% block extrafooter %}
+<script>
+$(function() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var coords = position.coords,
+          lng = coords.longitude,
+          lat = coords.latitude,
+          latLng = new google.maps.LatLng(lat, lng),
+          geocoder = new google.maps.Geocoder(),
+          address;
+      geocoder.geocode({'latLng': latLng}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          if (results[1]) {
+            address = results[1].formatted_address;
+            $('#located b').html(address);
+          }
+        }
+      });
+      $('#lookup input[name=lnglat]').val(lng + ',' + lat);
+      $('#lookup input[name=address]').val(address);
+      $('#lookup').show();
+    });
+  }
+});
+</script>
+{% endblock %}
+
 {% block content %}
+<style>
+#lookup { display: none; }
+</style>
+<form action="/lookup/" method="get" id="lookup">
+  <b></b> <input type="submit" value="Look up reps from current location">
+  <input type="hidden" name="lnglat">
+  <input type="hidden" name="address">
+</form>
+
 <form action="/search/" method="get">
-    <label>Address: <input name="q" id="q"></label> <input type="submit" value="Search for your footprint">
+    <label>Address: <input name="q" id="q"></label> <input type="submit" value="Search">
 </form>
 {% endblock %}

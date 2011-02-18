@@ -12,5 +12,6 @@ def geocode(q):
     result = json.loads(f.read())
     if result['status'] == 'OK':
         location = result['results'][0]['geometry']['location']
+        address = result['results'][0]['formatted_address']
         pt = fromstr('POINT(%s %s)' % (location['lng'], location['lat']))
-        return pt
+        return pt, address

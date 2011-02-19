@@ -28,7 +28,7 @@ class Representative(models.Model):
     url = models.CharField('URL', max_length=255)
 
     def __unicode__(self):
-        return '%s %s (%s-%s)' % (self.honorific, self.name, self.party, self.district.name)
+        return self.pretty_name
 
     @property
     def honorific(self):

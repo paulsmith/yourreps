@@ -54,3 +54,13 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'yourreps',
 )
+
+try:
+    exec "from yourreps.settings.host_%s import *" % HOSTNAME
+except ImportError:
+    pass
+
+try:
+    from yourreps.settings.local import *
+except ImportError:
+    pass

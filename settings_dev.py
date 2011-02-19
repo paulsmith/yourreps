@@ -1,4 +1,4 @@
-# Django settings for footprint project.
+# Django settings for yourreps project.
 import os.path
 
 PROJECT_DIR = os.path.normpath(os.path.dirname(__file__))
@@ -15,7 +15,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'footprint',                      # Or path to database file if using sqlite3.
+        'NAME': 'yourreps',                      # Or path to database file if using sqlite3.
         'USER': 'paul',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '/tmp',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -80,7 +80,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'footprint.urls'
+ROOT_URLCONF = 'yourreps.urls'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR, 'templates'),
@@ -97,5 +97,5 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'footprint',
+    'yourreps',
 )

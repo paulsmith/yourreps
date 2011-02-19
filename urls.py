@@ -8,8 +8,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^$', 'django.views.generic.simple.direct_to_template', {'template': 'index.html'}),
-    (r'^search/', 'footprint.views.search'),
-    (r'^lookup/', 'footprint.views.lookup'),
+    (r'^search/', 'yourreps.views.search'),
+    (r'^lookup/', 'yourreps.views.lookup'),
     (r'^admin/', include(admin.site.urls)),
 )
 

@@ -6,7 +6,7 @@ import os.path
 import sys
 from django.contrib.gis.gdal import DataSource
 from django.contrib.humanize.templatetags.humanize import ordinal
-from footprint.models import Layer, District
+from yourreps.models import Layer, District
 
 def import_city_council(filename):
     ds = DataSource(filename)

@@ -1,7 +1,7 @@
 import json
 import sys
 
-from footprint.models import Layer, District, Representative
+from yourreps.models import Layer, District, Representative
 
 def load_names(layer, filename):
     reps = json.load(open(filename))

@@ -4,7 +4,7 @@ import re
 import sys
 from django.contrib.gis.gdal import DataSource
 from django.contrib.humanize.templatetags.humanize import ordinal
-from footprint.models import District, Layer
+from yourreps.models import District, Layer
 
 class TigerImporter(object):
     def make_pretty_name(self, name):

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import json
 import sys
-from footprint.models import Representative, District
+from yourreps.models import Representative, District
 
 def import_reps(filename, district_slug):
     district = District.objects.get(slug=district_slug)

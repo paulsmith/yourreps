@@ -1,8 +1,8 @@
 import urllib
 from django.contrib.gis.geos import fromstr
 from django.shortcuts import render_to_response, redirect
-from footprint.models import District
-from footprint.geocode import geocode
+from yourreps.models import District
+from yourreps.geocode import geocode
 
 def lookup(request):
     lnglat = request.GET.get('lnglat', '')
@@ -21,7 +21,7 @@ def lookup(request):
         'sensor': 'false',
     }
     map_url = 'http://maps.google.com/maps/api/staticmap?' + urllib.urlencode(map_query)
-    return render_to_response('footprint.html', {
+    return render_to_response('yourreps.html', {
         'point': pt,
         'districts': districts,
         'map_url': map_url,

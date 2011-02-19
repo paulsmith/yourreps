@@ -1,7 +1,7 @@
 import os.path
 import socket
 
-PROJECT_DIR = os.path.normpath(os.path.dirname(__file__))
+PROJECT_DIR = os.path.join(os.path.dirname(__file__), '..')
 HOSTNAME = socket.gethostname().lower().split('.')[0].replace('-', '')
 
 DEBUG = False

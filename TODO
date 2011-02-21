@@ -12,6 +12,7 @@ App stuff
  - Redirect legacy latlng lookups
  - Add about page
  - Add layer icons / district highlights
+ - Add tests
 
 Server stuff
 ------------

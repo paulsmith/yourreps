@@ -5,6 +5,9 @@ from yourreps.models import District
 from yourreps.geocode import geocode
 
 def lookup(request):
+    """
+    Finds the districts and representatives for a given point
+    """
     lnglat = request.GET.get('lnglat', '')
     if not lnglat:
         raise Http404()
@@ -14,7 +17,6 @@ def lookup(request):
     districts = District.objects.filter(geom__contains=pt).order_by('layer__order')
     map_query = {
         'center': '%s,%s' % (bits[1], bits[0]),
-        #'zoom': 14,
         'size': '240x388',
         'maptype': 'roadmap',
         'markers': '%s,%s' % (pt.y, pt.x),
@@ -29,6 +31,10 @@ def lookup(request):
     })
 
 def search(request):
+    """
+    Geocodes a street address and passes the point on to the lookup view if
+    successful
+    """
     q = request.GET.get('q')
     pt, address = geocode(q)
     if pt is None:

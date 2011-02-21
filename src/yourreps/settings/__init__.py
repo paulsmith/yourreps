@@ -28,6 +28,11 @@ USE_L10N = True
 MEDIA_ROOT = ''
 MEDIA_URL = ''
 ADMIN_MEDIA_PREFIX = '/media/'
+STATIC_URL = '/static/'
+STATIC_ROOT = ''
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_DIR, '..', '..', 'static'),
+]
 SECRET_KEY = '-4f-ruxiz0el(x1(y!0&o6yfcrgt8!spb(#w(jo7k(65d0#_&d'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -44,6 +49,14 @@ ROOT_URLCONF = 'yourreps.urls'
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR, 'templates'),
 )
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'staticfiles.context_processors.static',
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+)
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,6 +66,7 @@ INSTALLED_APPS = (
     'django.contrib.gis',
     'django.contrib.admin',
     'yourreps',
+    'staticfiles',
 )
 
 try:

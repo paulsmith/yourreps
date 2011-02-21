@@ -1,0 +1,24 @@
+YourReps todos
+==============
+
+App stuff
+---------
+
+ - Switch to JavaScript geocoding
+ - New URLs for results page - based on geohashes
+ - Add explicit geolocation button
+ - Add district boundaries to map overlays
+ - Add search form to results page
+ - Redirect legacy latlng lookups
+ - Add about page
+ - Add layer icons / district highlights
+
+Server stuff
+------------
+
+ - Tune PostgreSQL
+ - Add gunicorn init script
+ - Push statics to cdn
+ - Add caching of geocoding
+ - Add caching of lookups
+ - Add varnish

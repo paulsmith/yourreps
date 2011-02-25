@@ -13,13 +13,14 @@ App stuff
  - Add about page
  - Add layer icons / district highlights
  - Add tests
+ - Custom map styles
 
 Server stuff
 ------------
 
- - Tune PostgreSQL
  - Add gunicorn init script
  - Push statics to cdn
  - Add caching of geocoding
  - Add caching of lookups
  - Add varnish
+ - Add memcached

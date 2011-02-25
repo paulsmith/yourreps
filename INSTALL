@@ -20,7 +20,7 @@ Follow the instructions to get the server up and running.
 
 8. Make sure the "yourreps" user exists and has rights to the postgis tables:
 
-createsuer yourreps
+createuser yourreps
 GRANT ALL ON spatial_ref_sys, geometry_columns TO yourreps;
 
 9. ./manage.py syncdb

@@ -24,3 +24,37 @@ Server stuff
  - Add caching of lookups
  - Add varnish
  - Add memcached
+
+Permalinks
+----------
+
+Currently, the URLs for the list of reps looks something like:
+
+  /lookup/?lnglat=-76.613516%2C39.279196&address=28+E+Henrietta+St%2C+Baltimore%2C+MD+21230%2C+USA
+
+The 'address' query param is from the geocoding service, representing a
+"pretty" formatted version of the street address the user typed in. (This
+param is null if the user chose to look up representation from geolocation
+and it couldn't be reversed-geocoded to a single street address.)  It's
+sloppy to pass the address this way, since it can be tampered with. (It's
+escaped in the template so there's no risk of dangerous output, but it's
+still subject to being modified out of band.) One better way to provide
+the nice formatted address would be to store it as a session variable for
+one-time display on the results page (i.e., deleted from the session after
+rendering the template).
+
+That leaves the 'lnglat' param. We should convert it to a geohash for use in
+nice URLs, in this case for example:
+
+  39.279196, -76.613516 -> dqcx2we9zsvfv
+
+(The geohash algorithm uses lat/lng ordering.)
+
+So the final clean, permalinkable URL for a YourReps result page could look
+like:
+
+  /r/dqcx2we9zsvfv/
+
+(The /r part of the path being an arbitrary token for unambiguously matching
+through regexes URL patterns to the results page view, since geohashes are
+base-32-encoded and therefore simple pattens like \w+ could match too much.)

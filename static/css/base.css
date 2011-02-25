@@ -87,7 +87,21 @@ a {
     color: #ff0000;
 }
 
-#caveat {
+b {
+    font-weight: bold;
+}
+
+li {
+    margin-left: 1em;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+ul {
+    margin: 1em 0;
+}
+
+.note {
     font-size: 75%;
     color: #74767e;
 }
@@ -121,4 +135,30 @@ header h1 {
 
 .representative {
     margin: 0.3em 0 0.5em 0;
+}
+
+footer {
+    border-top: 3px solid #ff0000;
+    background: #cc0000;
+    margin-top: 1em;
+    padding: 1em;
+    color: #ffffff;
+}
+
+footer a {
+    color: #eedddd;
+}
+
+footer p {
+    text-align: center;
+}
+
+.what {
+    font-size: 0.80em;
+}
+
+#geocode {
+    border-top: 1px solid #ccc;
+    padding-top: 1.0em;
+    margin-top: 1.0em;
 }

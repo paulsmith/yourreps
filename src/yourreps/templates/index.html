@@ -29,16 +29,34 @@ $(function() {
 {% endblock %}
 
 {% block content %}
+<div class="what">
+  <p><b>What is this?</b></p>
+  <p>Type in your address, and it’ll show you who represents you, including:</p>
+  <ul>
+    <li>Congressperson</li>
+    <li>State Senator</li>
+    <li>General Assembly Delegate(s)</li>
+    <li>City Council member (Baltimore only)</li>
+  </ul>
+</div>
 <style>
 #lookup { display: none; }
 </style>
-<form action="/lookup/" method="get" id="lookup">
-  <b></b> <input type="submit" value="Look up reps from current location">
-  <input type="hidden" name="lnglat">
-  <input type="hidden" name="address">
-</form>
 
-<form action="/search/" method="get" id="search">
-    <label>Address: <input name="q" id="q"></label> <input type="submit" value="Search">
-</form>
+<div id="geolocate">
+  <form action="/lookup/" method="get" id="lookup">
+    <b></b> <input type="submit" value="Look up reps from current location">
+    <input type="hidden" name="lnglat">
+    <input type="hidden" name="address">
+  </form>
+</div>
+
+<div id="geocode">
+  <form action="/search/" method="get" id="search">
+    <label>Your street address: <input name="q" id="q"></label> <input type="submit" value="Search">
+  </form>
+</div>
+
+<p class="note">Your street address is necessary to look up your representatives. We don’t
+save or store your address</p>
 {% endblock %}

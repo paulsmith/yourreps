@@ -27,8 +27,8 @@ USE_I18N = True
 USE_L10N = True
 MEDIA_ROOT = ''
 MEDIA_URL = ''
-ADMIN_MEDIA_PREFIX = '/media/'
 STATIC_URL = '/static/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 STATIC_ROOT = ''
 STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, '..', '..', 'static'),

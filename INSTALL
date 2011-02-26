@@ -1,0 +1,28 @@
+Installing on a Mac:
+
+1. Install postgres and postgis if you didn't have them already:
+
+brew install postgres, postgis
+
+Follow the instructions to get the server up and running.
+
+2. createdb yourreps && createlang plpgsql yourreps
+
+3. psql -d yourreps -f /usr/local/Cellar/postgis/1.5.2/share/postgis/postgis.sql
+
+4. psql -d yourreps -f /usr/local/Cellar/postgis/1.5.2/share/postgis/spatial_ref_sys.sql
+
+5. edit settings/local.py with database settings and DEBUG=True
+
+6. mkvirtualenv --no-site-packages yourreps
+
+7. pip install django ipython readline psycopg2 django-staticfiles
+
+8. Make sure the "yourreps" user exists and has rights to the postgis tables:
+
+createuser yourreps
+GRANT ALL ON spatial_ref_sys, geometry_columns TO yourreps;
+
+9. ./manage.py syncdb
+
+10. ./manage.py loaddata ../../fixtures/initial_data.json

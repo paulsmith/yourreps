@@ -1,5 +1,6 @@
 import os.path
 import socket
+import django
 
 PROJECT_DIR = os.path.join(os.path.dirname(__file__), '..')
 HOSTNAME = socket.gethostname().lower().split('.')[0].replace('-', '')
@@ -27,12 +28,14 @@ USE_I18N = True
 USE_L10N = True
 MEDIA_ROOT = ''
 MEDIA_URL = ''
-ADMIN_MEDIA_PREFIX = '/media/'
+ADMIN_MEDIA_PREFIX = '/static/admin_media/'
 STATIC_URL = '/static/'
 STATIC_ROOT = ''
-STATICFILES_DIRS = [
+admin_media_dir = os.path.join(django.__path__[0], 'contrib', 'admin', 'media')
+STATICFILES_DIRS = (
     os.path.join(PROJECT_DIR, '..', '..', 'static'),
-]
+    ('admin_media', admin_media_dir),
+)
 SECRET_KEY = '-4f-ruxiz0el(x1(y!0&o6yfcrgt8!spb(#w(jo7k(65d0#_&d'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',

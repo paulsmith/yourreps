@@ -38,5 +38,6 @@ class Representative(models.Model):
     def pretty_name(self):
         if self.honorific:
             return '%s %s (%s)' % (self.honorific, self.name, self.party)
-        else:
+        elif self.party:
             return '%s (%s)' % (self.name, self.party)
+        return self.name
